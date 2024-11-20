@@ -1,0 +1,68 @@
+<div class="main-container">
+  <header class="header">
+    <div class="branding">
+      <a href="/">
+        <cds-icon shape="node-group"></cds-icon>
+        <span class="title">ระบบบริหารจัดการผู้ป่วย CKD Clinic</span>
+      </a>
+    </div>
+  </header>
+  <div class="content-container">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true">
+      <clr-vertical-nav-group routerLinkActive="active">
+        <cds-icon shape="home" clrVerticalNavIcon></cds-icon>
+        หน้าหลัก
+        <clr-vertical-nav-group-children>
+          <a
+            clrVerticalNavLink
+            routerLink="./normal/pidgey"
+            routerLinkActive="active"
+          >
+            <cds-icon
+              shape="employee-group"
+              badge="success"
+              clrVerticalNavIcon
+            ></cds-icon>
+            ทะเบียนผู้ป่วย</a
+          >
+          <a
+            clrVerticalNavLink
+            routerLink="./normal/snorlax"
+            routerLinkActive="active"
+          >
+            <cds-icon
+              shape="bar-chart"
+              badge="success"
+              clrVerticalNavIcon
+            ></cds-icon>
+            ระบบรายงานข้อมูล</a
+          >
+        </clr-vertical-nav-group-children>
+      </clr-vertical-nav-group>
+      <clr-vertical-nav-group routerLinkActive="active">
+        <cds-icon shape="flame" clrVerticalNavIcon></cds-icon>
+        บริหารจัดการข้อมูล
+        <clr-vertical-nav-group-children>
+          <a
+            clrVerticalNavLink
+            routerLink="./fire/charmander"
+            routerLinkActive="active"
+            >ขึ้นทะเบียนผู้ป่วยรายใหม่</a
+          >
+          <a
+            clrVerticalNavLink
+            routerLink="./fire/charizard"
+            routerLinkActive="active"
+            >บันทึกปรับปรุงผล LAB</a
+          >
+        </clr-vertical-nav-group-children>
+      </clr-vertical-nav-group>
+
+      <a clrVerticalNavLink routerLinkActive="active" routerLink="./credit">
+        <cds-icon shape="certificate" clrVerticalNavIcon></cds-icon>
+        About us
+      </a>
+    </clr-vertical-nav>
+    <div class="content-area"><ng-content #name></ng-content></div>
+  </div>
+</div>
