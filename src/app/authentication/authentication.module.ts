@@ -7,10 +7,11 @@ import { SharedsModule } from '../shareds/shareds.module';
 import { ClrVerticalNavModule } from '@clr/angular';
 import { ClrDatagridModule, ClrIconModule } from '@clr/angular';
 import { ClarityIcons, successStandardIcon } from '@cds/core/icon';
+import { PatientListComponent } from './components/patient-ckd/patient-list/patient-list.component';
 ClarityIcons.addIcons(successStandardIcon);
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, PatientListComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,

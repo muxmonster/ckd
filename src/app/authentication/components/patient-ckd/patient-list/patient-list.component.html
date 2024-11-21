@@ -1,0 +1,43 @@
+<app-auth-sidebar>
+  <div class="alert alert-success" role="alert">
+    <div class="alert-items">
+      <div class="alert-item static">
+        <div class="alert-icon-wrapper">
+          <cds-icon class="alert-icon" shape="success-standard"></cds-icon>
+        </div>
+        <span class="alert-text">CKD patient's list</span>
+      </div>
+    </div>
+  </div>
+
+  <clr-datagrid>
+    <clr-dg-column>#</clr-dg-column>
+    <clr-dg-column [clrDgField]="'hn'">HN</clr-dg-column>
+    <clr-dg-column [clrDgField]="'fullname'">ชื่อ - นามสกุล</clr-dg-column>
+    <clr-dg-column [clrDgField]="'lab_date'"
+      >วันที่ตรวจ Lab ล่าสุด</clr-dg-column
+    >
+    <clr-dg-column [clrDgField]="'egfr'">egfr</clr-dg-column>
+    <clr-dg-column [clrDgField]="'detail'">รายละเอียด</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let patient of patients">
+      <clr-dg-cell>1</clr-dg-cell>
+      <clr-dg-cell>{{ patient.hn }}</clr-dg-cell>
+      <clr-dg-cell>{{ patient.fullname }}</clr-dg-cell>
+      <clr-dg-cell>{{ patient.last_lab }}</clr-dg-cell>
+      <clr-dg-cell>{{ patient.egfr }}</clr-dg-cell>
+      <clr-dg-cell>{{ patient.detail }}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        <clr-dg-page-size [clrPageSizeOptions]="[10, 20, 50, 100]"
+          >Users per page</clr-dg-page-size
+        >
+        {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of
+        {{ pagination.totalItems }} users
+      </clr-dg-pagination>
+      {{ patients.length }} users
+    </clr-dg-footer>
+  </clr-datagrid>
+</app-auth-sidebar>
