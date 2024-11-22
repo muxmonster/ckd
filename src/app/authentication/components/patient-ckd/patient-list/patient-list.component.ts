@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpService } from '../../../../services/http.service';
+import { IPatientList } from './patient-list.interface';
 
 @Component({
   selector: 'app-patient-list',
@@ -8,6 +10,26 @@ import { Component } from '@angular/core';
   styleUrl: './patient-list.component.scss',
 })
 export class PatientListComponent {
+  constructor(private httpService: HttpService) {}
+
+  lab_partient: IPatientList | any;
+  rows: number = 0;
+  ngOnInit() {
+    this.httpService.getLabCKD().subscribe({
+      next: (res) => {
+        this.lab_partient = res.data;
+        this.rows = res.data.length;
+        console.log(res.data);
+      },
+      error: (e) => {
+        console.log(e);
+      },
+      complete: () => {
+        console.info('complete');
+      },
+    });
+  }
+
   patients = [
     {
       hn: '123456',

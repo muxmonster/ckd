@@ -20,13 +20,13 @@
     <clr-dg-column [clrDgField]="'egfr'">egfr</clr-dg-column>
     <clr-dg-column [clrDgField]="'detail'">รายละเอียด</clr-dg-column>
 
-    <clr-dg-row *clrDgItems="let patient of patients">
+    <clr-dg-row *clrDgItems="let lab_pt of lab_partient">
       <clr-dg-cell>1</clr-dg-cell>
-      <clr-dg-cell>{{ patient.hn }}</clr-dg-cell>
-      <clr-dg-cell>{{ patient.fullname }}</clr-dg-cell>
-      <clr-dg-cell>{{ patient.last_lab }}</clr-dg-cell>
-      <clr-dg-cell>{{ patient.egfr }}</clr-dg-cell>
-      <clr-dg-cell>{{ patient.detail }}</clr-dg-cell>
+      <clr-dg-cell>{{ lab_pt.hn }}</clr-dg-cell>
+      <clr-dg-cell>{{ lab_pt.fullname }}</clr-dg-cell>
+      <clr-dg-cell>{{ lab_pt.lab_date }}</clr-dg-cell>
+      <clr-dg-cell>{{ lab_pt.egfr }}</clr-dg-cell>
+      <clr-dg-cell>{{ lab_pt.detail }}</clr-dg-cell>
     </clr-dg-row>
 
     <clr-dg-footer>
@@ -37,7 +37,7 @@
         {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of
         {{ pagination.totalItems }} users
       </clr-dg-pagination>
-      {{ patients.length }} users
+      {{ rows }} users
     </clr-dg-footer>
   </clr-datagrid>
 </app-auth-sidebar>
