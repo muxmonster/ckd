@@ -12,6 +12,11 @@ import { FormsModule } from '@angular/forms';
 
 import { ClrFormsModule, ClrDropdownModule } from '@clr/angular';
 
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
@@ -23,7 +28,7 @@ import { ClrFormsModule, ClrDropdownModule } from '@clr/angular';
     ClrDropdownModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
